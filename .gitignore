@@ -1,2 +1,5 @@
+.git/
 .project
 .vagrant
+node_modules/
+components/
