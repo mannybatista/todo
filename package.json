@@ -1,15 +1,16 @@
 {
-    "name": "todo",
-    "version": "0.0.1",
-    "readmeFilename": "README.md",
-    "devDependencies": {
-        "grunt": "0.4.x",
-        "grunt-cli": "0.1.x",
-        "grunt-text-replace": "0.3.x",
-        "underscore": "1.5.2",
-        "bower": "1.2.7"
-    },
-    "engines": {
-        "node": ">=0.8"
-    }
+	"name": "todo",
+	"version": "0.0.1",
+	"readmeFilename": "README.md",
+	"devDependencies": {
+		"grunt": "0.4.x",
+		"grunt-cli": "0.1.x",
+		"grunt-text-replace": "0.3.x",
+		"grunt-contrib-copy": "0.5.x",
+		"underscore": "1.5.2",
+		"bower": "1.2.7"
+	},
+	"engines": {
+		"node": ">=0.8"
+	}
 }
