@@ -1,7 +1,11 @@
-define(['backbone'], function(Backbone){
+define(['backbone'], function(Backbone) {
 	return Backbone.Model.extend({
 		defaults : {
-			data : [],
+			data : [{
+				task : 'This is my first task!'
+			}, {
+				task : 'This is my second task!'
+			}],
 		}
 	});
 });
