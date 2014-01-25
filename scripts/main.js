@@ -1,4 +1,4 @@
-require(['marionette', 'backbone', 'less', 'application/views/application_layout', 'application/controllers/application_controller', 'application/routers/application_router'], function(Marionette, Backbone, Less, ApplicationLayout, ApplicationController, ApplicationRouter) {
+require(['marionette', 'backbone', 'less', 'bootstrap', 'application/views/application_layout', 'application/controllers/application_controller', 'application/routers/application_router'], function(Marionette, Backbone, Less, Bootstrap, ApplicationLayout, ApplicationController, ApplicationRouter) {
 	// Create the Marionette Application
 	var application = new Marionette.Application();
 	// Create the main layout view for the application
