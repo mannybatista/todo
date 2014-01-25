@@ -23,7 +23,7 @@ module.exports = function(grunt) {'use strict';
 				src : 'components/bootstrap/docs/assets/css/bootstrap.css',
 				// point the imgs to our stylesheets libs folder
 				replacements : [{
-					to : 'libs/img',
+					to : 'img',
 					from : '../img'
 				}]
 			},
@@ -33,7 +33,7 @@ module.exports = function(grunt) {'use strict';
 			setup : {
 				files : [{
 					// copy bootstraps imgs to stylesheets/img
-					dest : 'stylesheets/libs/img/',
+					dest : 'stylesheets/img/',
 					src : 'components/bootstrap/docs/assets/img/glyphicons*.png',
 					flatten : true,
 					expand : true,
