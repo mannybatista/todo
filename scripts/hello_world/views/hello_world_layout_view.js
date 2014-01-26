@@ -4,6 +4,7 @@ define(['marionette', 'hbs!../templates/hello_world.html', '../models/hello_worl
 		regions : {
 			// 'region' : jquery selector (in the hello_world.html)
 			'add' : '.add-view',
+			'second' : '.second-view',
 			'collection' : '.collection-view',
 		},
 		initialize : function() {
@@ -22,6 +23,7 @@ define(['marionette', 'hbs!../templates/hello_world.html', '../models/hello_worl
 			// Lookup layoutview in marionette and the show method. (Show a view in a 'region')
 			// Render the add view
 			this.add.show(this.addView);
+			this.second.show(this.addView);
 			this.collection.show(this.tasksView);
 		},
 	});
