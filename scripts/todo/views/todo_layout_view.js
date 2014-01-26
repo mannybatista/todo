@@ -1,4 +1,4 @@
-define(['marionette', 'hbs!../templates/hello_world.html', '../models/hello_world', './add_view', './tasks_view'], function(Marionette, tmpl, HelloWorld, AddView, TasksView) {
+define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_view', './tasks_view'], function(Marionette, tmpl, Todo, AddView, TasksView) {
 	return Marionette.Layout.extend({
 		template : tmpl,
 		regions : {
@@ -9,7 +9,7 @@ define(['marionette', 'hbs!../templates/hello_world.html', '../models/hello_worl
 		},
 		initialize : function() {
 			// Create the 'HelloWorld' Model. This will be used to add/remove things.
-			this.model = new HelloWorld();
+			this.model = new Todo();
 			// Create the Add view (just the input box and add buton)
 			this.addView = new AddView({
 				collectionModel : this.model,
