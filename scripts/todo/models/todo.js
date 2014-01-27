@@ -1,10 +1,15 @@
 define(['backbone'], function(Backbone) {
 	return Backbone.Model.extend({
 		defaults : {
-			data : [{
-				task : 'This is my first task!'
-			}, {
-				task : 'This is my second task!'
+			lists : [{
+				name : 'My Todo List',
+				tasks : [{
+					task : 'This is my first task!',
+					completed : false
+				}, {
+					task : 'This is my second task!',
+					completed : true
+				}]
 			}],
 		}
 	});

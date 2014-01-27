@@ -20,7 +20,6 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 			collection.push({
 				task : this.model.get('todo'),
 			});
-
 			// Data will look like:
 			// data : [
 			// { todo : 'foo'},
@@ -30,6 +29,9 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 			// Normally we'd save and let the backend trigger this.
 			// Instead since everything is event driven, trigger a change and let the other view update!
 			this.collectionModel.trigger('change:data');
+			
+			this.serializeData();
+			this.model.JSON();
 		},
 	});
 });

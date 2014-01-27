@@ -13,11 +13,13 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 			// Create the Add view (just the input box and add buton)
 			this.addView = new AddView({
 				collectionModel : this.model,
+				addView : this.options,
 			});
 			// Create the 'tasks' collection view
 			this.tasksView = new TasksView({
 				model : this.model,
 			});
+			console.log(this.options);
 		},
 		onRender : function() {
 			// Lookup layoutview in marionette and the show method. (Show a view in a 'region')

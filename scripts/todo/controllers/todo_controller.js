@@ -2,6 +2,9 @@ define(['marionette', '../views/todo_layout_view'], function(Marionette, TodoLay
 	return Marionette.Controller.extend({
 		index : function(params) {
 			return new TodoLayout(params);
+		},
+		tasks : function(params) {
+			return new TodoLayout(params);
 		}
 	});
 });
