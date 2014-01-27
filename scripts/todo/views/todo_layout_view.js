@@ -3,7 +3,6 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 		template : tmpl,
 		regions : {
 			'add' : '.add-view',
-			'second' : '.second-view',
 			'collection' : '.collection-view',
 		},
 		initialize : function() {
