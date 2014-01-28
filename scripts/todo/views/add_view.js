@@ -12,13 +12,15 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 			// Grab the collectionModel
 			this.collectionModel = options.collectionModel;
 			this.model = new Add();
+			this.listId = this.options.listId || 0;
+			console.log('list id: ' + this.listId);
 		},
 		addToList : function() {
 			// Get the list to add to.
 			var collection = this.collectionModel.get('data');
 			// Get the data that was bound from the input box and add it to the list.
 			collection.push({
-				task : this.model.get('todo'),
+				task : this.model.get('data'),
 			});
 			// Data will look like:
 			// data : [
@@ -30,8 +32,15 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 			// Instead since everything is event driven, trigger a change and let the other view update!
 			this.collectionModel.trigger('change:data');
 			
-			this.serializeData();
-			this.model.JSON();
+		},
+		serializeData : function() {
+			var data = this.model.toJSON();
+			var lists = data['lists'];
+			var list = lists[this.listId];
+			console.log(data);
+			console.log('List: ');
+			console.log(list);
+			return list;
 		},
 	});
 });

@@ -10,16 +10,20 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 		initialize : function() {
 			// Create the 'HelloWorld' Model. This will be used to add/remove things.
 			this.model = new Todo();
+			
+			this.listId = this.options.id || 0;
+			
+			console.log('list id: ' + this.listId);
 			// Create the Add view (just the input box and add buton)
 			this.addView = new AddView({
 				collectionModel : this.model,
-				addView : this.options,
+				listId : this.listId,
 			});
 			// Create the 'tasks' collection view
 			this.tasksView = new TasksView({
 				model : this.model,
 			});
-			console.log(this.options);
+			
 		},
 		onRender : function() {
 			// Lookup layoutview in marionette and the show method. (Show a view in a 'region')
@@ -27,6 +31,16 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 			this.add.show(this.addView);
 			this.second.show(this.addView);
 			this.collection.show(this.tasksView);
+		},
+		
+		serializeData : function() {
+			var data = this.model.toJSON();
+			var lists = data['lists'];
+			var list = lists[this.listId];
+			console.log(data);
+			console.log('List: ');
+			console.log(list);
+			return list;
 		},
 	});
 });
