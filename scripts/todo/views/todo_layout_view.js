@@ -2,41 +2,44 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 	return Marionette.Layout.extend({
 		template : tmpl,
 		regions : {
-			// 'region' : jquery selector (in the hello_world.html)
 			'add' : '.add-view',
-			'second' : '.second-view',
 			'collection' : '.collection-view',
 		},
 		initialize : function() {
-			// Create the 'HelloWorld' Model. This will be used to add/remove things.
 			this.model = new Todo();
 			
-			this.listId = this.options.id || 0;
-			
 			console.log('list id: ' + this.listId);
-			// Create the Add view (just the input box and add buton)
+
+			// Save the list's id, default to 0 if no id is in the url
+			this.listId = this.options.id || 0;
+
+			// TODO remove all of my logs and comments ;)
+			console.log('list id: ' + this.listId);
+
 			this.addView = new AddView({
 				collectionModel : this.model,
+				// Now in the add view, you can use this.options.listId to get the list.
+				// Checkout serializeData for how to grab the list.
+
 				listId : this.listId,
 			});
-			// Create the 'tasks' collection view
+
 			this.tasksView = new TasksView({
 				model : this.model,
 			});
-			
+
 		},
 		onRender : function() {
-			// Lookup layoutview in marionette and the show method. (Show a view in a 'region')
-			// Render the add view
 			this.add.show(this.addView);
-			this.second.show(this.addView);
 			this.collection.show(this.tasksView);
-		},
-		
+		},		
+
 		serializeData : function() {
+			// Instead of serializing all of the data, lets just serialize the list.
 			var data = this.model.toJSON();
 			var lists = data['lists'];
 			var list = lists[this.listId];
+
 			console.log(data);
 			console.log('List: ');
 			console.log(list);
