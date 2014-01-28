@@ -13,21 +13,19 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 			console.log('list id: ' + this.listId);
 		},
 		addToList : function() {
+			
+			// Use the collection model instead of the add_view model - here
+			var data = this.model.toJSON();
+			var lists = data['lists'];
+			var list = lists[this.listId];
+			// After you get the list from the collectionModel, add it to the collection.
+			// Similar to this, but with the list
+
 			var collection = this.collectionModel.get('data');
 			collection.push({
 				task : this.model.get('data'),
 			});
 			this.collectionModel.trigger('change:data');
-
-		},
-		serializeData : function() {
-			var data = this.model.toJSON();
-			var lists = data['lists'];
-			var list = lists[this.listId];
-			console.log(data);
-			console.log('List: ');
-			console.log(list);
-			return list;
 
 		},
 	});
