@@ -1,4 +1,4 @@
-define(['marionette', 'hbs!../templates/tasks.html'], function(Marionette, tmpl, Task) {
+define(['marionette', 'hbs!../templates/tasks.html'], function(Marionette, tmpl) {
 	return Marionette.ItemView.extend({
 		className : 'collection-view',
 		template : tmpl,
