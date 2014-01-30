@@ -12,15 +12,19 @@ define(['marionette', 'hbs!../templates/tasks.html'], function(Marionette, tmpl)
 			
 			console.log('list id: ' + this.listId);	
 		},
+		
 		serializeData : function() {
 			var data = this.model.toJSON();
 			var lists = data['lists'];
 			var list = lists[this.listId];
+		
 			console.log(data);
 			console.log('List: ');
 			console.log(list);
 			return list;
 		},
+		
+		
 	});
 	
 });
