@@ -1,14 +1,8 @@
 <!-- Lookup each on handlebars' web page -->
-{{#each data}}
+{{#each tasks}}
 <div class="row-fluid">
 	<div class="span8 offset2">
 		{{task}}
 	</div>
 </div>
 {{/each}}
-
-<!-- <script id="tasks_view" type="template">
-  <% _.each(tasks, function(tasks){ %>
-    <%= tasks %>
-  <% }); %>
-</script> 

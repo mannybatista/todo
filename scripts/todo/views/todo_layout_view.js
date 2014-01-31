@@ -26,8 +26,9 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 
 			this.tasksView = new TasksView({
 				model : this.model,
+				
 			});
-
+				
 		},
 		onRender : function() {
 			this.add.show(this.addView);

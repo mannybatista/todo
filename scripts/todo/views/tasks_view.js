@@ -10,7 +10,8 @@ define(['marionette', 'hbs!../templates/tasks.html'], function(Marionette, tmpl)
 		
 			this.listId = this.options.id || 0;
 			
-			console.log('list id: ' + this.listId);	
+			console.log('list id: ' + this.listId);
+	
 		},
 		
 		serializeData : function() {
@@ -23,8 +24,7 @@ define(['marionette', 'hbs!../templates/tasks.html'], function(Marionette, tmpl)
 			console.log(list);
 			return list;
 		},
-		
-		
+	
 	});
 	
 });
