@@ -9,7 +9,8 @@ define(['backbone'], function(Backbone) {
 					
 				}, {
 					task : 'This is my second task!',
-					completed : true
+					completed : true,
+					checked : true
 					
 				}]
 			}],

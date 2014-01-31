@@ -1,6 +1,7 @@
-define(['marionette', 'hbs!../templates/tasks.html'], function(Marionette, tmpl) {
-	return Marionette.ItemView.extend({
+define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
+	return Base.ItemView.extend({
 		className : 'collection-view',
+		modelBinding : true,
 		template : tmpl,
 		modelEvents : {
 			// Re-render the page when a 'change:data' even is triggered'
