@@ -26,8 +26,9 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 
 			this.tasksView = new TasksView({
 				model : this.model,
+				
 			});
-
+				
 		},
 		onRender : function() {
 			this.add.show(this.addView);
@@ -39,7 +40,7 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 			var data = this.model.toJSON();
 			var lists = data['lists'];
 			var list = lists[this.listId];
-
+		
 			console.log(data);
 			console.log('List: ');
 			console.log(list);
