@@ -4,28 +4,30 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 		modelBinding : true,
 		template : tmpl,
 		modelEvents : {
-			// Re-render the page when a 'change:data' even is triggered'
 			'change:task' : 'render',
 		},
+		events : {
+			'click input[type="checkbox"]' : 'setCompletedTask'
+		},
 		initialize : function(options) {
-		
 			this.listId = this.options.id || 0;
-			
-			console.log('list id: ' + this.listId);
-	
 		},
-		
-		serializeData : function() {
+		setCompletedTask : function(e) {
+			if (e) {
+				var $el = this.$(e.target);
+				var taskId = $el.attr('data-task-id');
+				var list = this.getList(this.listId);
+				if (list)
+					list['tasks'][taskId]['completed'] = $el.is(':checked');
+			}
+		},
+		getList : function(id) {
 			var data = this.model.toJSON();
-			var lists = data['lists'];
-			var list = lists[this.listId];
-		
-			console.log(data);
-			console.log('List: ');
-			console.log(list);
-			return list;
+			return data && data['lists'][id];
 		},
-	
+		serializeData : function() {
+			return this.getList(this.listId);
+		},
 	});
-	
+
 });

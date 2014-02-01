@@ -1,8 +1,9 @@
 <!-- Lookup each on handlebars' web page -->
 {{#each tasks}}
 <div class="row-fluid">
-	<div class="span8 offset2">
-		<input type="checkbox" name="checked" value="completed">{{task}}<br>
+	<div class="span12">
+		<input type="checkbox" data-task-id="{{@index}}" {{#if completed}}checked="true"{{/if}}>
+		{{task}}
 	</div>
 </div>
 {{/each}}
