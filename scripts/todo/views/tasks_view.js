@@ -13,12 +13,14 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 			this.listId = this.options.id || 0;
 		},
 		setCompletedTask : function(e) {
+			console.log(e);
 			if (e) {
 				var $el = this.$(e.target);
 				var taskId = $el.attr('data-task-id');
 				var list = this.getList(this.listId);
 				if (list)
 					list['tasks'][taskId]['completed'] = $el.is(':checked');
+				this.render();
 			}
 		},
 		getList : function(id) {
