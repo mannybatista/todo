@@ -4,8 +4,7 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 		modelBinding : true,
 		template : tmpl,
 		events : {
-			'click .btn' : 'addToList',
-			'keyup' : 'addToList',
+			'keyup .task-input' : 'addToList',
 		},
 		initialize : function(options) {
 			this.collectionModel = options.collectionModel;	
