@@ -5,11 +5,13 @@ define(['backbone'], function(Backbone) {
 				name : 'My Todo List',
 				tasks : [{
 					task : 'This is my first task!',
-					completed : false
+					completed : false,
+					archive : true
 					
 				}, {
 					task : 'This is my second task!',
-					completed : true
+					completed : true,
+					archive : false
 				}]
 			}],
 		}

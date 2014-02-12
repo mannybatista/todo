@@ -7,8 +7,6 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 		},
 		initialize : function() {
 			this.model = new Todo();
-			
-			console.log('list id: ' + this.listId);
 
 			// Save the list's id, default to 0 if no id is in the url
 			this.listId = this.options.id || 0;
