@@ -1,4 +1,4 @@
-define(['marionette', 'hbs!../templates/todo.html','./archive_tasks_view'], function(Marionette, tmpl, ArchiveView) {
+define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './archive_tasks_view'], function(Marionette, tmpl, ArchiveView, Todo) {
 	return Marionette.Layout.extend({
 		template : tmpl,
 		regions : {
@@ -6,10 +6,13 @@ define(['marionette', 'hbs!../templates/todo.html','./archive_tasks_view'], func
 		},
 
 		initialize : function(options) {
+			
+			this.model = new Todo();
 			this.listId = this.options.id || 0;
 			this.archiveView = new ArchiveView({
 				model : this.model,
-			}),
+			});
+		},
 
 		onRender : function() {
 			this.archive.show(this.archiveView);
