@@ -1,4 +1,4 @@
-define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './archive_tasks_view'], function(Marionette, tmpl, ArchiveView, Todo) {
+define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './archive_tasks_view'], function(Marionette, tmpl, Todo, ArchiveView) {
 	return Marionette.Layout.extend({
 		template : tmpl,
 		regions : {
