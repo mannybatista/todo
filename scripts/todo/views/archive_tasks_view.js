@@ -1,6 +1,6 @@
 define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 	return Base.ItemView.extend({
-		className : 'archive-tasks-view',
+		className : 'archive-task-view',
 		modelBinding : true,
 		template : tmpl,
 		modelEvents : {
