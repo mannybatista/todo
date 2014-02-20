@@ -6,12 +6,12 @@ define(['backbone'], function(Backbone) {
 				tasks : [{
 					task : 'This is my first task!',
 					completed : false,
-					archive : true
+					archived : true
 					
 				}, {
 					task : 'This is my second task!',
 					completed : true,
-					archive : false
+					archived : false
 				}]
 			}],
 		}
