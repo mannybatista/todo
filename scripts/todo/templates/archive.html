@@ -17,9 +17,12 @@
 	
 		{{#each tasks}}
 		<div class="row-fluid">
+			{{#if archived}}
 			<div class="span12 {{#if archived}}archive{{/if}}" data-task="{{@index}}">
 				{{task}}
+				<a href="#" class="unarchive" data-task="{{@index}}">Unarchive</a>
 			</div>
+			{{/if}}
 		</div>
 		{{/each}}
 	

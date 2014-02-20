@@ -30,8 +30,9 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 				var $el = this.$(e.target);
 				var taskId = $el.attr('data-task');
 				var list = this.getList(this.listId);
+				e.preventDefault();
 				if (list)
-					list['tasks'][taskId]['archived'] = $el.is(':true');
+					list['tasks'][taskId]['archived'] = true;
 				this.render();
 			}
 		},
