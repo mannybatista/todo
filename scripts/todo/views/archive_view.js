@@ -6,14 +6,30 @@ define(['marionette', 'hbs!../templates/archive.html', '../models/todo'], functi
 		},
 		
 		events : {
+			'click .archive-task' : 'setArchivedTask',
 			'click .unarchive' : 'unarchiveTask',
 		},
-
+		
+		ui : { tooltip : '[title]' },
+		
 		initialize : function(options) {
 			
 			this.model = new Todo();
 			this.listId = this.options.id || 0;
-		},		
+		},	
+		
+		setArchivedTask : function(e) {
+
+			if (e) {
+				var $el = this.$(e.target);
+				var taskId = $el.attr('data-task');
+				var list = this.getList(this.listId);
+				e.preventDefault();
+				if (list)
+					list['tasks'][taskId]['archived'] = true;
+				this.render();
+			}
+		},	
 		
 		unarchiveTask : function(e) {
 			if (e) {
@@ -26,17 +42,17 @@ define(['marionette', 'hbs!../templates/archive.html', '../models/todo'], functi
 				this.render();
 			}
 		},
-
-		serializeData : function() {
-			// Instead of serializing all of the data, lets just serialize the list.
-			var data = this.model.toJSON();
-			var lists = data['lists'];
-			var list = lists[this.listId];
 		
-			console.log(data);
-			console.log('List: ');
-			console.log(list);
-			return list;
+		onRender : function() {
+			this.ui.tooltip.tooltip();
+		},		
+		
+		getList : function(id) {
+			var data = this.model.toJSON();
+			return data && data['lists'][id];
+		},
+		serializeData : function() {
+			return this.getList(this.listId);
 		},
 	});
 

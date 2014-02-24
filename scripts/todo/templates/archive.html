@@ -6,25 +6,44 @@
 			</div>
 			<div class="span3 links">
 				<a href="#">Your Lists</a>
-				<a href='#tasks/archive'>Archive</a>
 			</div>
 		</div>
+		
 		<div class="row-fluid">
 			<div class="span9">
-				<h4>{{name}}</h4>
+				<h4>Tasks</h4>
 			</div>
 		</div>
-	
-		{{#each tasks}}
+		
+			{{#each tasks}}
+			<div class="row-fluid">
+				{{#unless archived}}
+				<div class="span12">
+					<div>
+						<i data-trigger="hover" data-placement="left" title="Archive" data-task="{{@index}}" class="icon-remove archive-task"></i>{{task}}
+					</div>
+				</div>
+				{{/unless}}
+			</div>
+			{{/each}}
+			
 		<div class="row-fluid">
-			{{#if archived}}
-			<div class="span12 {{#if archived}}archive{{/if}}" data-task="{{@index}}">
-				{{task}}
-				<a href="#" class="unarchive" data-task="{{@index}}">Unarchive</a>
+			<div class="span9">
+				<h4>Archived Tasks</h4>
 			</div>
-			{{/if}}
 		</div>
-		{{/each}}
+		
+			{{#each tasks}}
+			<div class="row-fluid">
+				{{#if archived}}
+				<div class="span12">
+					<div>
+						<i data-trigger="hover" data-placement="left" title="Unarchive Task" data-task="{{@index}}" class="icon-ok unarchive"></i> {{task}}
+					</div> 
+				</div>
+				{{/if}}
+			</div>
+			{{/each}}
 	
 		<div class="add-view"></div>
 		<div class="collection-view"></div>
