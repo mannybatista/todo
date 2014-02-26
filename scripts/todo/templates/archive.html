@@ -10,6 +10,10 @@
 		</div>
 		
 		<div class="row-fluid">
+			<h3>{{name}}</h3>
+		</div>
+		
+		<div class="row-fluid">
 			<div class="span9">
 				<h4>Tasks</h4>
 			</div>
@@ -19,8 +23,8 @@
 			<div class="row-fluid">
 				{{#unless archived}}
 				<div class="span12">
-					<div>
-						<i data-trigger="hover" data-placement="left" title="Archive" data-task="{{@index}}" class="icon-remove archive-task"></i>{{task}}
+					<div data-trigger="hover" data-placement="left" title="Archive" data-task="{{@index}}" class="archive-task task-pointer">
+						<i class="icon-remove"></i>{{task}}
 					</div>
 				</div>
 				{{/unless}}
@@ -37,8 +41,8 @@
 			<div class="row-fluid">
 				{{#if archived}}
 				<div class="span12">
-					<div>
-						<i data-trigger="hover" data-placement="left" title="Unarchive Task" data-task="{{@index}}" class="icon-ok unarchive"></i> {{task}}
+					<div data-trigger="hover" data-placement="left" title="Unarchive Task" data-task="{{@index}}" class="unarchive task-pointer">
+						<i class="icon-ok"></i> {{task}}
 					</div> 
 				</div>
 				{{/if}}
