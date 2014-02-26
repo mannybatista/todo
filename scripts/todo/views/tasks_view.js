@@ -8,7 +8,6 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 		},
 		events : {
 			'click input[type="checkbox"]' : 'setCompletedTask',
-			'click .archive-task' : 'setArchivedTask'
 		},
 		initialize : function(options) {
 			this.listId = this.options.id || 0;
@@ -24,17 +23,7 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 				this.render();
 			}
 		},
-		setArchivedTask : function(e) {
-
-			if (e) {
-				var $el = this.$(e.target);
-				var taskId = $el.attr('data-task');
-				var list = this.getList(this.listId);
-				if (list)
-					list['tasks'][taskId]['archived'] = $el.is(':true');
-				this.render();
-			}
-		},
+		
 		getList : function(id) {
 			var data = this.model.toJSON();
 			return data && data['lists'][id];
