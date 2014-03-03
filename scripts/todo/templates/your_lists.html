@@ -1,0 +1,28 @@
+<div class="row-fluid">
+	<div class="span8 offset2">
+		<div class="span12 todo-header">
+			<div class="span9 title">
+					Your Lists
+			</div>
+			<div class="span3 links">
+				<a href="#">Tasks</a>
+			</div>
+		</div>
+		
+		<div class="row-fluid">
+				<h4>{{name}}</h4>
+		</div>
+		
+		{{#each tasks}}
+			<div class="row-fluid">
+				<div class="span12">
+					 {{task}}
+				</div>
+			</div>
+		{{/each}}
+		
+		<div class="add-view"></div>
+		<div class="collection-view"></div>
+		<div class="your-lists-view"></div>
+	</div>
+</div>

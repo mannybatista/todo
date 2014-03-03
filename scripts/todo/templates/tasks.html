@@ -2,8 +2,9 @@
 {{#each tasks}}
 <div class="row-fluid">
 	<div class="span12 {{#if completed}}complete{{/if}}">
-		<input type="checkbox" data-task-id="{{@index}}" {{#if completed}}checked="true"{{/if}}>
+		<input type="checkbox" data-task-id="{{@index}}" {{#if completed}}checked="true"{{/if}} class="delete">
 		{{task}}
+		<a class="task-pointer delete">Delete task</a>
 	</div>
 </div>
 {{/each}}

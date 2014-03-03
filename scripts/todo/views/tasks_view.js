@@ -24,6 +24,15 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 			}
 		},
 		
+		deleteTask : function(e) {
+			if (e) {
+				$('.delete').click(function(e){
+				    $(e.target).parent().remove();
+				});
+				this.render();
+			}
+		},
+		
 		getList : function(id) {
 			var data = this.model.toJSON();
 			return data && data['lists'][id];

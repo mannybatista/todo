@@ -1,4 +1,4 @@
-define(['marionette', '../views/todo_layout_view', '../views/archive_view'], function(Marionette, TodoLayout, ArchiveView) {
+define(['marionette', '../views/todo_layout_view', '../views/archive_view', '../views/your_lists_view'], function(Marionette, TodoLayout, ArchiveView, ListsView) {
 	return Marionette.Controller.extend({
 		index : function(params) {
 			return this.tasks(params);
@@ -8,6 +8,9 @@ define(['marionette', '../views/todo_layout_view', '../views/archive_view'], fun
 		},
 		archive : function(params) {
 			return new ArchiveView(params);
+		},
+		lists : function(params) {
+			return new ListsView(params);
 		},
 	});
 });

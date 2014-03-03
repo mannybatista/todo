@@ -5,6 +5,11 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 			'add' : '.add-view',
 			'collection' : '.collection-view',
 		},
+		
+		events : {
+			'keyup .nameList' : 'changeListName',
+		},
+
 		initialize : function() {
 			this.model = new Todo();
 
@@ -28,6 +33,7 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 			});
 				
 		},
+
 		onRender : function() {
 			this.add.show(this.addView);
 			this.collection.show(this.tasksView);
@@ -43,6 +49,25 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 			console.log('List: ');
 			console.log(list);
 			return list;
+		},
+		
+		changeListName : function(e) {
+			if (e.which === 13) {
+				var data = this.model.toJSON();
+				console.log('data:');
+				console.log(data);
+				var lists = data['lists.push'];
+				console.log('lists:');
+				console.log(lists);
+				var list = lists[this.listId];
+				console.log('list:');
+				console.log(list);
+				list.push({
+					name : this.model.get('name'),
+				});
+				console.log(list);
+				this.collectionModel.trigger('change:name');
+			}
 		},
 	});
 });
