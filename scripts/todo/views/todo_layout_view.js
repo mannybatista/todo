@@ -63,7 +63,7 @@ define(['Base', 'hbs!../templates/todo.html', '../models/todo', './add_view', '.
 				var list = lists[this.listId];
 				console.log('list:');
 				console.log(list);
-				list.name = this.model.get('name');
+				list.name = this.model.get('listName');
 				console.log('list.name: ');
 				console.log(list.name);
 				this.render();

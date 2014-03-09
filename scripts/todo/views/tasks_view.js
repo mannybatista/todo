@@ -8,6 +8,7 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 		},
 		events : {
 			'click input[type="checkbox"]' : 'setCompletedTask',
+			'click .delete' : 'deleteTask',
 		},
 		initialize : function(options) {
 			this.listId = this.options.id || 0;
@@ -26,9 +27,11 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 		
 		deleteTask : function(e) {
 			if (e) {
-				$('.delete').click(function(e){
-				    $(e.target).parent().remove();
-				});
+				var $el = this.$(e.target);
+				var taskId = $el.attr('data-task');
+				var list = this.getList(this.listId);
+				e.preventDefault();
+				list.task.remove();
 				this.render();
 			}
 		},
