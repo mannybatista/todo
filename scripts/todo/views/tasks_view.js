@@ -28,7 +28,7 @@ define(['Base', 'hbs!../templates/tasks.html'], function(Base, tmpl) {
 		deleteTask : function(e) {
 			if (e) {
 				var $el = this.$(e.target);
-				var taskId = $el.attr('data-task-id');
+				var taskId = $el.attr('data-tasks');
 				var list = this.getList(this.listId);
 				e.preventDefault();
 				list['tasks'].splice(taskId, 1);
