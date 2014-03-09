@@ -1,4 +1,4 @@
-define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_view', './tasks_view'], function(Base, tmpl, Todo, AddView, TasksView) {
+define(['Base', 'hbs!../templates/todo.html', '../models/todo', './add_view', './tasks_view'], function(Base, tmpl, Todo, AddView, TasksView) {
 	return Base.Layout.extend({
 		template : tmpl,
 		modelBinding : true,
