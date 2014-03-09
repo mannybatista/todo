@@ -16,7 +16,14 @@ define(['marionette', 'hbs!../templates/your_lists.html', '../models/todo'], fun
 			return data && data['lists'][id];
 		},
 		serializeData : function() {
-			return this.getList(this.listId);
+			var data = this.model.toJSON();
+			var lists = data['lists'];
+			var list = lists[this.listId];
+		
+			console.log(data);
+			console.log('List: ');
+			console.log(list);
+			return list;
 		},
 	});
 

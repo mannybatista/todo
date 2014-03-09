@@ -1,6 +1,7 @@
-define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_view', './tasks_view'], function(Marionette, tmpl, Todo, AddView, TasksView) {
-	return Marionette.Layout.extend({
+define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_view', './tasks_view'], function(Base, tmpl, Todo, AddView, TasksView) {
+	return Base.Layout.extend({
 		template : tmpl,
+		modelBinding : true,
 		regions : {
 			'add' : '.add-view',
 			'collection' : '.collection-view',
@@ -56,17 +57,16 @@ define(['marionette', 'hbs!../templates/todo.html', '../models/todo', './add_vie
 				var data = this.model.toJSON();
 				console.log('data:');
 				console.log(data);
-				var lists = data['lists.push'];
+				var lists = data['lists'];
 				console.log('lists:');
 				console.log(lists);
 				var list = lists[this.listId];
 				console.log('list:');
 				console.log(list);
-				list.push({
-					name : this.model.get('name'),
-				});
-				console.log(list);
-				this.collectionModel.trigger('change:name');
+				list.name = this.model.get('name');
+				console.log('list.name: ');
+				console.log(list.name);
+				this.render();
 			}
 		},
 	});
