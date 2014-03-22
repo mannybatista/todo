@@ -8,7 +8,10 @@
 		"grunt-text-replace": "0.3.x",
 		"grunt-contrib-copy": "0.5.x",
 		"underscore": "1.5.2",
-		"bower": "1.2.7"
+		"bower": "1.2.7",
+		"express": "latest",
+		"mysql": "latest",
+		"squel": "latest"
 	},
 	"engines": {
 		"node": ">=0.8"

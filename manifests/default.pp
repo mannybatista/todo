@@ -40,5 +40,12 @@ class mysql-server {
   }
 }
 
+class nodejs {
+  package { "nodejs":
+    ensure => present,
+  }
+}
+
 include apache
 include mysql-server
+include nodejs
