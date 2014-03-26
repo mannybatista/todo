@@ -12,8 +12,8 @@ create table if not exists task
 id int not null primary key,
 listId int not null,
 name varchar(255) not null,
-completed bit,
-archived bit 
+completed bool,
+archived bool 
 );
 
 insert into lists values(0, 'My Todo List');
