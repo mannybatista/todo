@@ -17,6 +17,18 @@ class apache {
     require => Package["apache2"],
     notify  => Service["apache2"],
   }
+
+  exec { "/usr/sbin/a2enmod proxy_http":
+    unless => "/bin/ls /etc/apache2/mods-enabled/proxy*",
+    require => Package["apache2"],
+    notify  => Service["apache2"],
+  }
+
+    exec { "/usr/sbin/a2enmod rewrite":
+    unless => "/bin/ls /etc/apache2/mods-enabled/rewrite*",
+    require => Package["apache2"],
+    notify  => Service["apache2"],
+  }
   
   exec { "allow-override":
     unless => "/bin/sed -n '11 p' /etc/apache2/sites-available/default | /bin/grep 'AllowOverride All'",
