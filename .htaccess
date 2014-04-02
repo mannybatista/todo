@@ -3,4 +3,4 @@ RewriteEngine On
 
 AddType text/plain .less
 
-RewriteRule /node(.*) http://127.0.0.1:8888/$1 [P]
+RewriteRule node(.*) http://127.0.0.1:8888$1 [P]
