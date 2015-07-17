@@ -31,6 +31,6 @@ define(['Base', 'hbs!../templates/add.html', '../models/add'], function(Base, tm
 				console.log('collection model: ' + this.collectionModel);
 			}
 		},
-		
+
 	});
 });
